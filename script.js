@@ -22,3 +22,34 @@ setInterval(updateTime, 1000);
 
 
 
+
+
+
+let win = document.getElementById('window')
+
+let dragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+win.addEventListener('mousedown', (e) => {
+    dragging = true;
+
+    offsetX = e.clientX - win.offsetLeft
+    offsetY = e.clientY - win.offsetTop
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (dragging === false) {
+        return
+    } else {
+        win.style.left = (e.clientX - offsetX) + 'px'
+        win.style.top = (e.clientY - offsetY) + 'px'
+        
+    }
+})
+
+document.addEventListener('mouseup', () => {
+    dragging = false
+})
+
+

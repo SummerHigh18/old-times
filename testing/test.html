@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Draggable Window Demo</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #008080; /* classic teal desktop */
+    font-family: Tahoma, Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .window {
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    width: 320px;
+    background: #c0c0c0;
+    border: 2px solid #dfdfdf;
+    box-shadow: 2px 2px 0 #000;
+  }
+
+  .titlebar {
+    background: linear-gradient(to right, #000080, #1084d0);
+    color: white;
+    padding: 4px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: grab;
+    user-select: none; /* stops text highlighting while dragging */
+  }
+
+  .titlebar:active {
+    cursor: grabbing;
+  }
+
+  .window-body {
+    padding: 16px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="window" id="myWindow">
+    <div class="titlebar" id="myTitlebar">My Window</div>
+    <div class="window-body">Drag me by the title bar!</div>
+    <div class="window-body">ClientX: <p id="clientX"></p></div>
+    <div class="window-body">ClientY: <p id="clientY"></p></div>
+    <div class="window-body">offsetLeft: <p id="offsetLeft"></p></div>
+    <div class="window-body">OffsetY: <p id="OffsetY"></p></div>
+    
+  </div>
+
+<script>
+  const win = document.getElementById('myWindow');
+  const titlebar = document.getElementById('myTitlebar');
+
+  let offsetX = 0;
+  let offsetY = 0;
+  let isDragging = false;
+
+  titlebar.addEventListener('mousedown', (e) => {
+    isDragging = true;
+
+    // How far is the mouse from the window's top-left corner?
+    // We need this so the window doesn't "snap" its corner to the cursor.
+    offsetX = e.clientX - win.offsetLeft;
+    offsetY = e.clientY - win.offsetTop;
+    
+    document.getElementById('clientX').innerText = e.clientX
+    document.getElementById('clientY').innerText = e.clientY
+
+    document.getElementById('offsetLeft').innerText = win.offsetLeft
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    // New position = current mouse position, minus that original offset
+    win.style.left = (e.clientX - offsetX) + 'px';
+    win.style.top = (e.clientY - offsetY) + 'px';
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+</script>
+
+</body>
+</html>
