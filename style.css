@@ -1,8 +1,17 @@
+@font-face {
+    font-family: 'Windows-Font';
+    src: url(./fonts/w95f.woff2) format('woff2');
+}
+
 body {
     background-image: url(./assets/images/background.webp);
 }
 * {
     margin: 0;
+}
+
+button {
+    cursor: pointer;
 }
 
 #taskbar {
@@ -27,6 +36,19 @@ body {
     cursor: pointer;
 }
 
+.window-btn {
+    padding: 0;
+    height: 20px;
+    width: 20px;
+    border: none;
+}
+
+.window-btn img {
+    height: 20px;
+    width: 20px;
+
+}
+
 #start-btn img {
     height: 30px;
     /* margin-left: 8px; */
@@ -45,16 +67,42 @@ body {
     cursor: grab;
     top: 50%;
     left: 50%;
-    padding: 8px;
+    /* padding: 8px; */
     margin: 6px;
-    border: 6px dotted #c0c0c0;
-    height: 256px;
+    outline: 2px solid #ffffff;
+    border: 2px solid #dfdfdf;
+    width: 320px;
     box-sizing: border-box;
-    width: 384px;
     transform: translate(-50%, -50%);
-    border-radius: 16px;
-    background-color: peachpuff;
+    background-color: #c0c0c0;
     
+}
+
+img {
+
+
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+
+}
+
+#window-content {
+    padding: 6px;
+    
+}
+
+#titlebar {
+    background-color: #000080;
+    margin: 2px;
+    margin-bottom: 0;
+    padding: 5px;
+    font-family: 'Windows-Font';
+    color: white;
+    padding: 4px 6px;
+    /* padding-top: 8px; */
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 #window:active {
@@ -65,6 +113,7 @@ body {
 #window h2 {
     font-size: 64px;
 }
-#window p {
-    font-size: 40px;
+
+#titlebar p {
+    padding-top: 3px;
 }

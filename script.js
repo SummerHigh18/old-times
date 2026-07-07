@@ -53,3 +53,46 @@ document.addEventListener('mouseup', () => {
 })
 
 
+const minimizeBtn = document.getElementById('minimize-btn');
+const maximizeBtn = document.getElementById('maximize-btn');
+const closeBtn = document.getElementById('close-btn');
+
+
+minimizeBtn.addEventListener('click', () => {
+    win.style.display = 'none'
+})
+closeBtn.addEventListener('click', () => {
+    win.style.display = 'none'
+})
+
+let isMaximized = false;
+let original = {}
+
+maximizeBtn.addEventListener('click', () => {
+    if(!isMaximized) {
+
+        original = {
+            width: '320px',
+            height: 'auto',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
+
+        }
+        win.style.width = '100%'
+        win.style.height = '94%'
+        win.style.top = '0'
+        win.style.left = '0'
+        win.style.transform = 'none'
+        isMaximized = true
+    } else {
+        win.style.width = original.width
+        win.style.height = original.height
+        win.style.top = original.top
+        win.style.left = original.left
+        win.style.transform = original.transform
+
+        isMaximized = false
+    }
+})
+
