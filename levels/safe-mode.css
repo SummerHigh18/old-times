@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'Windows-Font';
+    src: url(../fonts/w95f.woff2) format('woff2');
+}
+
+body {
+    background-color: #008080;
+}
+* {
+    margin: 0;
+    font-family: 'Windows-Font';
+}
+
+#login-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 6px;
+    outline: 2px solid #ffffff;
+    border: 2px solid #dfdfdf;
+    width: 320px;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    background-color: #c0c0c0;
+    
+}
+
+#window-content {
+    padding: 16px;
+    
+}
+
+#titlebar {
+    background-color: #000080;
+    margin: 2px;
+    margin-bottom: 0;
+    padding: 5px;
+    font-family: 'Windows-Font';
+    color: white;
+    padding: 4px 6px;
+    /* padding-top: 8px; */
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    margin-right: 12px;
+}
+
+#password label {
+    margin-right: 13px;
+}
+
+input {
+    min-height: 21px;
+    margin-bottom: 4px;
+}
+
+#window-content p {
+    text-align: center;
+    margin: 8px;
+    margin-bottom: 0;
+    cursor: pointer;
+
+}
+
+.btn {
+    text-align: center;
+    margin: 6px;
+}
+
+button {
+    background-color: #019f9f;
+    color: white;
+    padding: 4px 8%;
+
+}
+
+button:hover {
+    cursor: pointer;
+}

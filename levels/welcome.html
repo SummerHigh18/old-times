@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="welcome.css">
+    
+    <title>Welcome</title>
+</head>
+<body>
+    <div id="taskbar">
+        <button id="start-btn">
+            <img src="../assets/images/Start-pressed.png" alt="Start">
+        </button>
+        <div id="task-buttons"></div>
+        <div id="date-time">10:36 PM</div >
+    </div>
+    <div id="apps">
+        <div class="app" data-app="bin">
+            <img src="../assets/images/Recycle Bin Full.png" alt="" class="icon">
+            <p class="icon-name">Recycle Bin</p>
+        </div>
+        <div class="app" data-app="docs">
+            <img src="../assets/images/Documents.png" alt="" class="icon">
+            <p class="icon-name">Documents</p>
+        </div>
+    </div>
+    <div class="window">
+        <div class="titlebar">
+            <p>Recycle Bin</p>
+            <div>
+                <button class="window-btn" id="minimize-btn"><img src="../assets/images/Window Button.png" alt=""></button>
+                <button class="window-btn" id="maximize-btn"><img src="../assets/images/Window Button-1.png" alt=""></button>
+                <button class="window-btn" id="close-btn"><img src="../assets/images/Window Button-2.png" alt=""></button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="file-row">
+                <div class="app bin">
+                    <img src="../assets/images/Files.png" alt="" class="icon bin-img">
+                    <p class="icon-name">data.txt</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="welcome.js"></script>
+</body>
+</html>
