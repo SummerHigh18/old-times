@@ -75,7 +75,7 @@ button {
     box-sizing: border-box;
     transform: translate(-50%, -50%);
     background-color: #c0c0c0;
-    /* display: none; */
+    display: none;
 }
 
 img {
@@ -143,7 +143,11 @@ img {
     
 }
 
-
+#docs-text {
+    margin: 0;
+    padding: 0;
+    color: black;
+}
 
 .app.selected .icon {
     filter: brightness(8%) sepia(10) saturate(50) hue-rotate(200deg);
@@ -155,4 +159,27 @@ img {
     
 }
 
+.docs {
+    margin: 8px 4px;
+    align-items: flex-start;
+}
 
+#right-click {
+    position: absolute;
+    top: 0;
+    width: 138px;
+    background: #c5c4c4;
+    border: 2px solid rgb(238, 237, 237);
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    outline: 1px solid rgb(255, 255, 255);
+    padding: 4px 2px;
+    z-index: 9999999999999;
+    display: none;
+    font-family: 'Windows-Font';
+}
+
+#restore:hover {
+    background-color: #040d91;
+    color: white;
+}

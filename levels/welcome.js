@@ -148,13 +148,50 @@ apps.forEach(app => {
 
 document.querySelector('body').addEventListener('click', () => {
     apps.forEach(app => {
-        app.classList.remove('selected')
+        app.classList.remove('selected');
     })
 })
 
 
 apps.forEach(app => {
     app.addEventListener('dblclick', () => {
-        
+        let appName= app.dataset.app
+        if (appName == undefined) {
+            return
+        }
+
+        let window = document.getElementById(`${appName}-window`)
+        window.style.display = 'block'
     })
+})
+
+
+const rightClickContainer = document.getElementById('right-click');
+
+// let isRightClick = false;
+
+// document.addEventListener('contextmenu', (e) => {
+//     e.preventDefault();
+
+//     isRightClick = true
+//     rightClickContainer.style.display = 'block'
+//     rightClickContainer.style.top = `${e.clientY}px`
+//     rightClickContainer.style.left = `${e.clientX}px`
+// })
+
+document.addEventListener('click', (e) => {
+    rightClickContainer.style.display = 'none';
+})
+
+
+const file = document.getElementById('text-bin');
+
+file.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    rightClickContainer.style.display = 'block'
+    rightClickContainer.style.top = `${e.clientY}px`
+    rightClickContainer.style.left = `${e.clientX}px`
+
+    file.classList.add('selected')
+
 })
