@@ -18,11 +18,11 @@
 
 
     <div id="apps">
-        <div class="app" data-app="bin">
+        <div class="app desktop" data-app="bin">
             <img src="../assets/images/Recycle Bin Full.png" alt="" class="icon">
             <p class="icon-name">Recycle Bin</p>
         </div>
-        <div class="app" data-app="docs">
+        <div class="app desktop" data-app="docs">
             <img src="../assets/images/Documents.png" alt="" class="icon">
             <p class="icon-name">Documents</p>
         </div>
@@ -42,8 +42,8 @@
 
         <div class="window-content">
             
-            <div class="file-row">
-                <div class="app bin" id="text-bin">
+            <div class="bin file-row">
+                <div class="app" id="txt-file">
                     <img src="../assets/images/Files.png" alt="" class="icon bin-img">
                     <p class="icon-name">data.txt</p>
                 </div>
@@ -65,13 +65,14 @@
         </div>
 
         <div class="window-content">
-            <div class="file-row">
-                <div class="app docs">
-                    <p class="icon-name" id="docs-text">Empty</p>
+            <div class="doc file-row">
+                <div class="app empty-row">
+                    <p class="icon-name empty-text">Empty</p>
                 </div>
             </div>
         </div>
     </div>
+
     <div id="right-click">
         <p id="restore">Restore</p>
     </div>
