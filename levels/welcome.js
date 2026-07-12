@@ -214,33 +214,49 @@ document.querySelector('.bin #txt-file').addEventListener('contextmenu', (e) => 
     rightClickContainer.style.top = `${e.clientY}px`;
     rightClickContainer.style.left = `${e.clientX}px`;
 
-
-
 })
-
 
 document.getElementById('restore').addEventListener('click', () => {
     docContainer.innerHTML = binContainer.innerHTML
     binContainer.innerHTML = '<div class="app empty-row"><p class="icon-name empty-text">Empty</p></div>'
 
     docContainer.querySelector('.app').classList.add('text-document');
-    
 })
 
-if (document.querySelector('.text-document') !== null) {
+// if (document.querySelector('.text-document') !== null) {
 
-    document.querySelector('.text-document').addEventListener('dblclick', (e) => {
-            const noteWindow = document.getElementById('bin-window').cloneNode(true);
+//     document.querySelector('.text-document').addEventListener('dblclick', (e) => {
+//             const noteWindow = document.getElementById('bin-window').cloneNode(true);
     
-            noteWindow.removeAttribute('id');
-            noteWindow.querySelector('.titlebar').querySelector('p').innerText = 'data.txt'
+//             noteWindow.removeAttribute('id');
+//             noteWindow.querySelector('.titlebar').querySelector('p').innerText = 'data.txt'
     
-            noteWindow.querySelector('.window-content').remove();
+//             noteWindow.querySelector('.window-content').remove();
 
-            document.querySelector('body').appendChild(noteWindow)
+//             document.querySelector('body').appendChild(noteWindow)
     
             
-    })
-}
+//     })
+// }
 
 
+docContainer.addEventListener('dblclick', (e) => {
+    if (e.target.classList.contains('.text-document')) {
+        doc = e.target
+    } else {
+        doc = e.target.closest('.text-document'); 
+    }
+    if (!doc) {
+        return
+    }
+
+    let noteWindow = document.getElementById('bin-window').cloneNode(true);
+
+    noteWindow.removeAttribute('id');
+    noteWindow.querySelector('.titlebar').querySelector('p').textContent = 'data.txt';
+    noteWindow.querySelector('.window-content').remove();
+
+    document.querySelector('body').appendChild(noteWindow);
+    makeDraggable(noteWindow)
+
+})
