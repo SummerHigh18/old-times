@@ -68,6 +68,14 @@ const minimizeBtns = document.querySelectorAll('.minimize-btn');
 const maximizeBtns = document.querySelectorAll('.maximize-btn');
 const closeBtns = document.querySelectorAll('.close-btn');
 
+document.addEventListener('click', (e) => {
+    const window = e.target.closest('.window');
+    if (!window) return; // found a short syntax :)
+
+    if (e.target.closest('.close-btn')) {
+        window.style.display = 'none';
+    }
+})
 
 minimizeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -126,25 +134,6 @@ maximizeBtns.forEach(btn => {
 let apps = document.querySelectorAll('.app')
 
 let selectedApp = null;
-// apps.forEach(app => {
-//     app.addEventListener('click', (e) => {
-//         e.stopPropagation();
-
-//         if(selectedApp === app) {
-//             selectedApp.classList.remove('selected')
-//             selectedApp = null;
-//             return;
-//         }
-
-
-//         if(selectedApp && selectedApp != app) {
-//             selectedApp.classList.remove('selected')
-//         }
-        
-//         app.classList.add('selected')
-//         selectedApp = app;
-// })
-// })
 
 document.addEventListener('click', (e) => {
     const app = e.target.closest('.app')
@@ -189,17 +178,6 @@ apps.forEach(app => {
 
 const rightClickContainer = document.getElementById('right-click');
 
-// let isRightClick = false;
-
-// document.addEventListener('contextmenu', (e) => {
-//     e.preventDefault();
-
-//     isRightClick = true
-//     rightClickContainer.style.display = 'block'
-//     rightClickContainer.style.top = `${e.clientY}px`
-//     rightClickContainer.style.left = `${e.clientX}px`
-// })
-
 document.addEventListener('click', (e) => {
     rightClickContainer.style.display = 'none';
 })
@@ -223,23 +201,7 @@ document.getElementById('restore').addEventListener('click', () => {
     docContainer.querySelector('.app').classList.add('text-document');
 })
 
-// if (document.querySelector('.text-document') !== null) {
-
-//     document.querySelector('.text-document').addEventListener('dblclick', (e) => {
-//             const noteWindow = document.getElementById('bin-window').cloneNode(true);
-    
-//             noteWindow.removeAttribute('id');
-//             noteWindow.querySelector('.titlebar').querySelector('p').innerText = 'data.txt'
-    
-//             noteWindow.querySelector('.window-content').remove();
-
-//             document.querySelector('body').appendChild(noteWindow)
-    
-            
-//     })
-// }
-
-
+let i = 0;
 docContainer.addEventListener('dblclick', (e) => {
     if (e.target.classList.contains('.text-document')) {
         doc = e.target
@@ -250,13 +212,24 @@ docContainer.addEventListener('dblclick', (e) => {
         return
     }
 
-    let noteWindow = document.getElementById('bin-window').cloneNode(true);
+    
+    if (i == 0) {
 
-    noteWindow.removeAttribute('id');
-    noteWindow.querySelector('.titlebar').querySelector('p').textContent = 'data.txt';
-    noteWindow.querySelector('.window-content').remove();
+        let noteWindow = document.getElementById('bin-window').cloneNode(true);
+    
+        noteWindow.removeAttribute('id');
+        noteWindow.id = 'data-txt-window';
+        noteWindow.querySelector('.titlebar').querySelector('p').textContent = 'data.txt';
+        noteWindow.querySelector('.window-content').remove();
+    
+        document.querySelector('body').appendChild(noteWindow);
+        makeDraggable(noteWindow)
 
-    document.querySelector('body').appendChild(noteWindow);
-    makeDraggable(noteWindow)
+        i = i + 1;
+    }
+
+    if (i >= 1) {
+        document.getElementById('data-txt-window').style.display = 'block';
+    }
 
 })

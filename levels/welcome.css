@@ -188,3 +188,11 @@ img {
     color: white;
     cursor: pointer;
 }
+
+button {
+    z-index: 20;
+}
+
+img {
+    z-index: 1;
+}
