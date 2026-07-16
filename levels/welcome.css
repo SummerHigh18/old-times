@@ -76,6 +76,7 @@ button {
     transform: translate(-50%, -50%);
     background-color: #c0c0c0;
     display: none;
+    z-index: 50;
 }
 
 img {
@@ -88,6 +89,8 @@ img {
 
 .window-content {
     padding: 6px;
+    cursor: text;
+    user-select: text;
     
 }
 
@@ -195,4 +198,9 @@ button {
 
 img {
     z-index: 1;
+}
+
+#data-txt-window .window-content {
+    background-color: white;
+    height: 32px;
 }

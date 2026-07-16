@@ -68,39 +68,18 @@ const minimizeBtns = document.querySelectorAll('.minimize-btn');
 const maximizeBtns = document.querySelectorAll('.maximize-btn');
 const closeBtns = document.querySelectorAll('.close-btn');
 
+let isMaximized = false;
+let original = {};
+
 document.addEventListener('click', (e) => {
     const window = e.target.closest('.window');
     if (!window) return; // found a short syntax :)
 
-    if (e.target.closest('.close-btn')) {
+    if (e.target.closest('.close-btn') || e.target.closest('.minimize-btn')) {
         window.style.display = 'none';
     }
-})
 
-minimizeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        let win = btn.closest('.window')
-        win.style.display = 'none'
-    })
-
-})
-closeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        let win = btn.closest('.window')
-        win.style.display = 'none'
-    })
-    
-})
-
-
-let isMaximized = false;
-let original = {}
-
-
-maximizeBtns.forEach(btn => {
-    let win = btn.closest('.window')
-    
-    btn.addEventListener('click', () => {
+    if (e.target.closest('.maximize-btn')) {
         if(!isMaximized) {
     
             original = {
@@ -111,23 +90,25 @@ maximizeBtns.forEach(btn => {
                 transform: 'translate(-50%, -50%)'
     
             }
-            win.style.width = '100%'
-            win.style.height = '94%'
-            win.style.top = '0'
-            win.style.left = '0'
-            win.style.transform = 'none'
+            window.style.width = '100%'
+            window.style.height = '94%'
+            window.style.top = '0'
+            window.style.left = '0'
+            window.style.transform = 'none'
             isMaximized = true
         } else {
-            win.style.width = original.width
-            win.style.height = original.height
-            win.style.top = original.top
-            win.style.left = original.left
-            win.style.transform = original.transform
+            window.style.width = original.width
+            window.style.height = original.height
+            window.style.top = original.top
+            window.style.left = original.left
+            window.style.transform = original.transform
     
             isMaximized = false
         }
-    })
+
+    }
 })
+
 
 
 
@@ -220,7 +201,8 @@ docContainer.addEventListener('dblclick', (e) => {
         noteWindow.removeAttribute('id');
         noteWindow.id = 'data-txt-window';
         noteWindow.querySelector('.titlebar').querySelector('p').textContent = 'data.txt';
-        noteWindow.querySelector('.window-content').remove();
+        noteWindow.querySelector('.window-content').innerHTML = "<p id='data-txt-content'>.-- --- -. -.. . .-. ... .-.-.- .... - -- .-..</p>";
+        
     
         document.querySelector('body').appendChild(noteWindow);
         makeDraggable(noteWindow)
