@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Windows-Font';
-    src: url(../fonts/w95f.woff2) format('woff2');
+    src: url(../assets/fonts/w95f.woff2) format('woff2');
 }
 
 body {

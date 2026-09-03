@@ -5,7 +5,7 @@ forgotPass.addEventListener('click', () => {
 })
 
 document.getElementById('login-btn').addEventListener('click', () => {
-    if (document.getElementById('user').value == 'rext0r' && document.getElementById('pass').value == '/safe-001') {
-        window.location.href = "http://127.0.0.1:3000/levels/level-1.html?vscode-livepreview=true"
+    if (document.getElementById('user').value == '/straw' && document.getElementById('pass').value == '/safe-001') {
+        window.location.href = "/levels/welcome.html"
     }
 })

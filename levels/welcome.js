@@ -3,10 +3,10 @@ const btn = document.getElementById("start-btn");
 const img = btn.querySelector('img');
 
 btn.addEventListener('click', () => {
-    if (img.src.includes('http://127.0.0.1:3000/assets/images/Start-pressed.png')) {
-        img.src = 'http://127.0.0.1:3000/assets/images/Start.png'
+    if (img.src.includes('/assets/images/Start.png')) {
+        img.src = '/assets/images/Start-pressed.png'
     } else {
-        img.src = 'http://127.0.0.1:3000/assets/images/Start-pressed.png'
+        img.src = '/assets/images/Start.png'
     }
 });
 

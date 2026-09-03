@@ -186,7 +186,7 @@ img {
     font-family: 'Windows-Font';
 }
 
-#restore:hover {
+#right-click:hover {
     background-color: #040d91;
     color: white;
     cursor: pointer;
