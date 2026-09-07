@@ -186,12 +186,20 @@ img {
     font-family: 'Windows-Font';
 }
 
-#right-click:hover {
+#right-click p:hover {
     background-color: #040d91;
     color: white;
     cursor: pointer;
 }
 
+#right-click p {
+    padding: 2px;
+}
+
+h5 {
+    border-bottom: 2.5px groove #eae8e8;
+
+}
 button {
     z-index: 20;
 }

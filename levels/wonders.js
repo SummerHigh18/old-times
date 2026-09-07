@@ -175,6 +175,17 @@ document.getElementById('property').addEventListener('click', () => {
     docContainer.querySelector('.app').classList.add('text-document');
 })
 
+document.getElementById('img-download').addEventListener('click', () => {
+    const link = document.createElement('a');
+
+    link.href = '/assets/images/meow.png';
+    link.download = 'meeow.png';
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+})
+
 // let i = 0;
 // docContainer.addEventListener('dblclick', (e) => {
 //     if (e.target.classList.contains('.text-document')) {
