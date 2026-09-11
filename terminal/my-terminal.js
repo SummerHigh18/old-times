@@ -97,7 +97,7 @@ const commands = {
     ipconfig(...args) {
         const fullArgument = args.join(' ');
         if (fullArgument === '/dns --history') {
-            this.echo('hi lol');
+            this.echo('Last visited: /hosting');
         } else {
             this.error('Enter a valid argument!')
         }
