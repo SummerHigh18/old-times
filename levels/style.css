@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+
+}
+
+img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#heading-text {
+    color: beige;
+    margin-top: 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+#main-content{
+    color: beige;
+    text-align: center;
+    margin-top: 80px;
+}
+
+#main-content p {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+a:link {
+    color: beige;
+}
+
+a:visited {
+    color: rgb(236, 236, 140);
+}
+
+footer {
+    color: beige;
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+    text-align: center;
+}
+
