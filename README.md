@@ -16,3 +16,6 @@ The tutorial section is currently completed. Will be adding more levels!
 - improving the overall frontend
 - improving the layout of the Desktop
 - organise the repo directories
+
+### AI Usage
+AI just used for simple debugging and help! 
