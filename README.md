@@ -9,6 +9,8 @@ The tutorial section is currently completed. Will be adding more levels!
 ![alt text](./assets/images/image.png)
 ![alt text](./assets/images/image-2.png)
 
+### Walkthrough
+[Video](https://cdn.hackclub.com/01a0a0ef-f66a-7048-85cb-7a68cd57e5f1/Screencast%20From%202026-09-14%2022-44-20.mp4)
 ### To-Do
 - More levels
 - Add lore 
